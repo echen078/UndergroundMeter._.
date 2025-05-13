@@ -36,6 +36,7 @@ document.getElementById("login").addEventListener("click", async () => {
       });
 
       const data = await tokenResponse.json();
+      const accessToken = data.access_token;
       console.log("Access token:", data.access_token);
 
 
@@ -47,7 +48,11 @@ document.getElementById("login").addEventListener("click", async () => {
       try {
         const topArtists = await fetchTopArtists(accessToken);
         const avg = calculateAveragePopularity(topArtists);
-        alert(`🎧 Your average artist popularity is: ${avg.toFixed(2)}`);
+        
+        //alert(`🎧 Your average artist popularity is: ${avg.toFixed(2)}`);
+        // Redirect to results page
+        window.location.href = `results.html?avg=${avg.toFixed(2)}`;
+
       } catch (err) {
         alert("Failed to fetch top artists: " + err.message);
       }
