@@ -1,4 +1,109 @@
+document.getElementById("login").addEventListener("click", async () => {
+  const clientId = '0b708c705a3b4b00b67f6e68c1d68ed6';
+  const redirectUri = chrome.identity.getRedirectURL('spotify');
+  const codeVerifier = generateRandomString(128);
+  const codeChallenge = await generateCodeChallenge(codeVerifier);
 
+  localStorage.setItem("verifier", codeVerifier); // Save for later
+
+  const authUrl = `https://accounts.spotify.com/authorize?` +
+    `client_id=${clientId}` +
+    `&response_type=code` +
+    `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+    `&scope=user-top-read` +
+    `&code_challenge_method=S256` +
+    `&code_challenge=${codeChallenge}`;
+
+  chrome.identity.launchWebAuthFlow(
+    { url: authUrl, interactive: true },
+    async function (redirectUrl) {
+      const urlParams = new URL(redirectUrl).searchParams;
+      const authCode = urlParams.get("code");
+      const codeVerifier = localStorage.getItem("verifier");
+
+      const tokenResponse = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+          grant_type: "authorization_code",
+          code: authCode,
+          redirect_uri: redirectUri,
+          client_id: clientId,
+          code_verifier: codeVerifier
+        })
+      });
+
+      const data = await tokenResponse.json();
+      console.log("Access token:", data.access_token);
+
+
+      if (!accessToken) {
+        alert("Failed to get access token.");
+        return;
+      }
+
+      try {
+        const topArtists = await fetchTopArtists(accessToken);
+        const avg = calculateAveragePopularity(topArtists);
+        alert(`🎧 Your average artist popularity is: ${avg.toFixed(2)}`);
+      } catch (err) {
+        alert("Failed to fetch top artists: " + err.message);
+      }
+
+
+    }
+  );
+});
+
+// -- Spotify API Helpers --
+
+async function fetchTopArtists(token) {
+  const res = await fetch("https://api.spotify.com/v1/me/top/artists?limit=5", {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error("Spotify API error: " + res.status);
+  }
+
+  const data = await res.json();
+  return data.items || [];
+}
+
+function calculateAveragePopularity(artists) {
+  if (artists.length === 0) return 0;
+  const total = artists.reduce((sum, artist) => sum + artist.popularity, 0);
+  return total / artists.length;
+}
+
+
+// -- PKCE Utility Functions --
+
+function generateRandomString(length) {
+  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += charset[Math.floor(Math.random() * charset.length)];
+  }
+  return result;
+}
+
+async function generateCodeChallenge(codeVerifier) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(codeVerifier);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return btoa(String.fromCharCode(...new Uint8Array(digest)))
+    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+
+
+
+/*
 const clientId = '0b708c705a3b4b00b67f6e68c1d68ed6';
 const redirectUri = chrome.identity.getRedirectURL('spotify');
 const scopes = 'user-top-read';
@@ -10,6 +115,8 @@ document.querySelector('#login-btn').addEventListener('click', () => {
     `&response_type=token` +
     `&redirect_uri=${encodeURIComponent(redirectUri)}` +
     `&scope=${encodeURIComponent(scopes)}`;
+
+  console.log("Auth URL: ", authUrl);
 
   chrome.identity.launchWebAuthFlow(
     { url: authUrl, interactive: true },
@@ -47,7 +154,7 @@ function calculateAveragePopularity(artists) {
   return total / artists.length;
 }
 
-
+*/
 
 /*
 document.getElementById("login-btn").addEventListener("click", function () {
