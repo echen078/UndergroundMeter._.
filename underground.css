@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1D2A53;
+    color: #FB8698;
+    margin: 30px;
+    padding: 0;
+  }
+  
+  h1, h2 {
+    margin: 20px 0;
+    font-family: fantasy
+  }
+  
+  button {
+    background-color: #FB8698;
+    color: #1D2A53;
+    border: none;
+    padding: 15px 30px;
+    font-family: fantasy;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin: 10px; /* Added margin around the button */
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }

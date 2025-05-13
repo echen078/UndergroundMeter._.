@@ -1,10 +1,29 @@
 {
-    "name": "Undergroung Meter",
-    "description": "Measures how cool u r :)",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "hello.html",
-      "default_icon": "Underground.png"
-    }
+  "manifest_version": 3,
+  "name": "Underground Meter",
+  "description": "Measures how cool u r :))",
+  "version": "1.0",
+
+  "action": {
+    "default_popup": "underground.html",
+    "default_icon": "Underground.png"
+  },
+
+  "permissions": [
+    "identity"
+  ],
+
+  "host_permissions": [
+    "http://localhost:8888/*", 
+    "https://accounts.spotify.com/*"
+  ],
+
+  "oauth2": {
+    "client_id": "0b708c705a3b4b00b67f6e68c1d68ed6",
+    "scopes": ["user-top-read"]
+  },
+
+  "background": {
+    "service_worker": "background.js"
   }
+}
