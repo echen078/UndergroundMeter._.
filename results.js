@@ -9,20 +9,12 @@ document.getElementById('result').textContent = avg;
   if(avg)
   {
     const pop = parseFloat(avg).toFixed(2);
-    const imageElement = document.getElementById('resultimg');
+    const imageElement = document.getElementById('result');
     if(pop >= 76)
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        imageElement.src = "pleaser.jpeg";
-=======
-        imageElement.src = "img/based.jpeg";
->>>>>>> Stashed changes
-=======
-        imageElement.src = "img/based.jpeg";
->>>>>>> Stashed changes
+        imageElement.src = "img/pleaser.jpeg";
         imageElement.style.opacity = 1;
       }, 100);
     }
@@ -30,15 +22,7 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        imageElement.src = "almostcool.jpg";
-=======
-        imageElement.src = "img/pleaser.jpeg";
->>>>>>> Stashed changes
-=======
-        imageElement.src = "img/pleaser.jpeg";
->>>>>>> Stashed changes
+        imageElement.src = "img/almostcool.jpg";
         imageElement.style.opacity = 1;
       }, 100);
     }
