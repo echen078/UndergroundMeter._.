@@ -14,7 +14,11 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
+<<<<<<< Updated upstream
         imageElement.src = "pleaser.jpeg";
+=======
+        imageElement.src = "img/based.jpeg";
+>>>>>>> Stashed changes
         imageElement.style.opacity = 1;
       }, 100);
     }
@@ -22,7 +26,11 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
+<<<<<<< Updated upstream
         imageElement.src = "almostcool.jpg";
+=======
+        imageElement.src = "img/pleaser.jpeg";
+>>>>>>> Stashed changes
         imageElement.style.opacity = 1;
       }, 100);
     }
@@ -30,7 +38,7 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
-        imageElement.src = "tappedin.jpeg";
+        imageElement.src = "img/tappedin.jpeg";
         imageElement.style.opacity = 1;
       }, 100);
     }
