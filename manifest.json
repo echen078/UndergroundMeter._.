@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "manifest_version": 3,
   "name": "Underground Meter",
   "description": "Measures how cool u r :))",
@@ -34,3 +35,14 @@
     "service_worker": "background.js"
   }
 }
+=======
+    "name": "Undergroung Meter",
+    "description": "Measures how cool u r :)",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "hello.html",
+      "default_icon": "Underground.png"
+    }
+  }
+>>>>>>> Stashed changes
