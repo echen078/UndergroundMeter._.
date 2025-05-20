@@ -14,7 +14,7 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
-        imageElement.src = "based.jpeg";
+        imageElement.src = "pleaser.jpeg";
         imageElement.style.opacity = 1;
       }, 100);
     }
@@ -22,7 +22,7 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
-        imageElement.src = "pleaser.jpeg";
+        imageElement.src = "almostcool.jpg";
         imageElement.style.opacity = 1;
       }, 100);
     }
