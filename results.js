@@ -9,7 +9,7 @@ document.getElementById('result').textContent = avg;
   if(avg)
   {
     const pop = parseFloat(avg).toFixed(2);
-    const imageElement = document.getElementById('result');
+    const imageElement = document.getElementById('resultimg');
     if(pop >= 76)
     {
       imageElement.style.opacity = 0;
