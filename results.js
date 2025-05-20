@@ -17,6 +17,8 @@ document.getElementById('result').textContent = avg;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
         imageElement.src = "pleaser.jpeg";
+=======
+        imageElement.src = "img/based.jpeg";
 >>>>>>> Stashed changes
 =======
         imageElement.src = "img/based.jpeg";
@@ -31,6 +33,8 @@ document.getElementById('result').textContent = avg;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
         imageElement.src = "almostcool.jpg";
+=======
+        imageElement.src = "img/pleaser.jpeg";
 >>>>>>> Stashed changes
 =======
         imageElement.src = "img/pleaser.jpeg";
