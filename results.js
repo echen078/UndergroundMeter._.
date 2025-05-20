@@ -15,6 +15,7 @@ document.getElementById('result').textContent = avg;
       imageElement.style.opacity = 0;
       setTimeout(() => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         imageElement.src = "pleaser.jpeg";
 =======
         imageElement.src = "img/based.jpeg";
@@ -26,6 +27,7 @@ document.getElementById('result').textContent = avg;
     {
       imageElement.style.opacity = 0;
       setTimeout(() => {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         imageElement.src = "almostcool.jpg";
 =======
