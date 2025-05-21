@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Underground Meter",
   "description": "Measures how cool u r :))",
-  "version": "1.0",
+  "version": "2.0",
 
   "action": {
     "default_popup": "underground.html",
