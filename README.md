@@ -107,5 +107,5 @@ underground-meter/
 
 ## 🤝 Contributors
 Ellen Chen — Developer & UI/UX\
-Samantha Shon — Developer & UI/UX
+Samantha Shon — Developer & UI/UX\
 UCLA Radio
