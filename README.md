@@ -34,13 +34,9 @@ This project aims to make discovering underground music effortless and fun — d
 
 ## 🖼️ Screenshots
 
-*(Add your actual images later — these are placeholders)*
-
 | Popup UI | OAuth Login |
 |----------|-------------|
-| ![Popup](./screenshots/popup.png) | ![Login](./screenshots/login.png) |
-
-To add screenshots, create a `/screenshots` folder and drop the PNGs inside.
+| ![Popup](./img/Home1.png) | ![Login](./img/Authentication.png) |
 
 ---
 
@@ -76,6 +72,7 @@ export const REDIRECT_URI = "chrome-extension://<extension-id>/callback.html";
 ---
 
 ## 📁 Project Structure
+```arduino
 underground-meter/
 │── manifest.json
 │── popup.html
@@ -88,7 +85,7 @@ underground-meter/
 │     └── icons/
 │── screenshots/
 └── README.md
-
+```
 ---
 
 ## 🎨 UI/UX Notes
